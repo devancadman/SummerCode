@@ -26,9 +26,9 @@ SECRET_KEY = "django-insecure-j0+$r2r(l7n!pxc_b)q#&0w#d2_ixt#wcvpqwj!e%n2p-4cgxy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-iris-smok-summercode-18029wqirg.us2.codeanyapp.com']
+ALLOWED_HOSTS = ['8000-irissmok-summercode-ba98h1pwi4w.ws-eu101.gitpod.io']
 
-
+# CSRF_TRUSTED_ORIGINS = ['https://8000-irissmok-summercode-ba98h1pwi4w.ws-eu101.gitpod.io']
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'event',
 ]
 
 MIDDLEWARE = [
