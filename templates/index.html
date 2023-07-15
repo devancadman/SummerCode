@@ -5,6 +5,54 @@
 
 <div class="container">
     <div class="row">
+      <div class="welcome-tet">
+        <h1>Welcome to Parenthood!</h1>
+      </div>
+      <div class="parenthood-brief">
+        <div class="brief-text">
+          <p> A safe space for parents and their children to meet up and connect with the community.
+        </div>
+        <div class="signup-btn-container">
+          <button id="signup-btn">Sign Up</div>
+        </div>
+      </div>
+      <div class="img-container">
+        <img src="">
+      </div>
+    </div>
+    <div class="row" id="about">
+      <div class="row about-txt">
+        <h2>What is Parenthood App</div>
+        <p>It is an app that allows families to create and locate events near them and bring the community together</p>
+      </div>
+      <div class"row">
+        <div class="column meet-community">
+          <i class="fa-sharp fa-solid fa-handshake"></i>
+          <p>Meet the community</p>
+        </div>
+      </div>
+      <div class"row">
+        <div class="column find-support">
+          <i class="fa-regular fa-hand-holding-heart"></i>
+          <p>Find Supprt</p>
+        </div>
+      </div>
+      <div class"row">
+        <div class="column discover-events">
+          <i class="fa-regular fa-map-location-dot"></i>
+          <p>Discover nearby events</p>
+        </div>
+      </div>
+    </div>
+    <div class"row">
+      <div class="meet-up-text">
+        <h3>Meet Up</h3>
+        <p>Lets get social!</p>
+        <p>Discover other parents and events near you.</p>
+      </div>
+      <div id="map"></div>
+    </div>
+    <div class="row">
         {% for event in events %}
       <div class="col-sm-6 col-md-7 col-lg-3 col-xl-3 rec-card-position">
         <a href="#" class="text-decoration-none text-reset">
