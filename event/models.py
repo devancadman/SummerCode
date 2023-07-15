@@ -20,3 +20,6 @@ class Event(models.Model):
     event_date_time = models.DateTimeField()
     event_description = models.TextField()
     event_location = models.CharField(max_length=80, null=False, blank=False)
+
+    def __str__(self):
+        return self.event_name
