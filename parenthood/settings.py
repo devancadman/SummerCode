@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-j0+$r2r(l7n!pxc_b)q#&0w#d2_ixt#wcvpqwj!e%n2p-4cgxy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-irissmok-summercode-ba98h1pwi4w.ws-eu101.gitpod.io']
+ALLOWED_HOSTS = ['8000-oyindamolaba-summercode-5bcqplw24rt.ws-eu101.gitpod.io']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-irissmok-summercode-ba98h1pwi4w.ws-eu101.gitpod.io']
 # Application definition
@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
     'event',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -57,6 +59,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "parenthood.urls"
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -74,7 +78,6 @@ TEMPLATES = [
     },
 ]
 
-
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -85,9 +88,16 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID=1
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_REQUIRED = True
+
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+ACCOUNT_SESSION_REMEMBER = True
+
 WSGI_APPLICATION = "parenthood.wsgi.application"
-
-
 
 
 # Database
