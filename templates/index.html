@@ -2,7 +2,33 @@
 
 {% block content %}
 <style>
-  Style goes here
+  body {
+    color: #382e20;
+    background: radial-gradient(#f9f7ee, 80%, #ffefaf);
+    text-align: center;
+  }
+
+  #about, .events-outter {
+    background: radial-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+    padding: 5%;
+    box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+  }
+
+  #signup-btn {
+    font-size: 16px;
+    padding: 5px;
+    background: linear-gradient(45deg, #fff, 33%, #ffefaf, 66%, #fff);
+    border: 2px solid black;
+    box-shadow: 1px 2px 3px grey;
+    border-radius: 5px;
+    text-shadow: 1px 1px 1px grey;
+  }
+
+  #signup-btn:hover {
+    box-shadow: 1px 2px 3px grey;
+    transform: scale(1.05);
+    transition: 100ms;
+  }
 </style>
 
 <div class="container">
@@ -54,7 +80,7 @@
       </div>
       <div id="map"></div>
     </div>
-    <div class="row">
+    <div class="row events-outter">
         {% for event in events %}
       <div class="col-sm-6 col-md-7 col-lg-3 col-xl-3 rec-card-position">
         <a href="#" class="text-decoration-none text-reset">
