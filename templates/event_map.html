@@ -1,0 +1,43 @@
+<!-- event_map.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <div id="map" style="height: 400px;"></div>
+    <input type="text" id="searchInput" placeholder="Search for location...">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var map = L.map('map');
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+                maxZoom: 18,
+            }).addTo(map);
+            
+             // Function to display event markers on the map
+             function showEvents(events) {
+                console.log(events); // Log the event data to the console
+                var markers = L.markerClusterGroup();
+        
+                events.forEach(function(event) {
+                    var location = { lat: event.latitude, lng: event.longitude };
+                    var marker = L.marker(location).bindPopup('<b>' + event.event_name + '</b>');
+                    markers.addLayer(marker);
+                });
+        
+                map.addLayer(markers);
+            }
+
+            // Function to handle errors when fetching event data
+            function handleEventDataError(error) {
+                console.log("Error fetching event data:", error);
+            }
+
+            // Fetch event data from Django and display markers on the map
+            fetch('/api/events/') // Replace this URL with the endpoint that returns event data as JSON
+                .then(response => response.json())
+                .then(data => showEvents(data))
+                .catch(error => handleEventDataError(error));
+        });
+    </script>
+{% endblock %}
