@@ -5,6 +5,7 @@ from django import forms
 from .widgets import  DatePickerInput, TimePickerInput
 import datetime
 from django.core.exceptions import ValidationError
+from .models import Event, UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
