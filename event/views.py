@@ -65,3 +65,12 @@ def edit_event(request, event_id):
 
     return render(request, template, context)
 
+
+def user_events(request):
+
+    if request.user.is_authenticated:
+        events = Event.objects.filter(organizer=request.user).order_by('-event_date')
+        context = {
+        'events':events
+    }
+    return render(request, 'user_events.html', context)
