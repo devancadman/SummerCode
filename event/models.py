@@ -1,4 +1,6 @@
 from django.db import models
+import datetime
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 # Create your models here.
@@ -16,9 +18,10 @@ class UserProfile(models.Model):
 
 class Event(models.Model):
     organizer = models.ForeignKey(User, on_delete=models.CASCADE,related_name='event_posts') 
-    event_name = models.CharField(max_length=80,null=False, blank=False)
-    event_date_time = models.DateTimeField()
-    event_description = models.TextField()
+    event_name = models.CharField(max_length=80, null=False, blank=False)
+    event_date = models.DateField( null=False, blank=False)
+    event_time = models.TimeField( null=False, blank=False)
+    event_description = models.TextField(null=True)
     event_location = models.CharField(max_length=80, null=False, blank=False)
 
     def __str__(self):
