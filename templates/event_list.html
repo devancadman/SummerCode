@@ -1,0 +1,84 @@
+<!-- event_list.html -->
+<div id="filterContainer">
+    {% include 'filter_form.html' %}
+</div>
+
+<div id="eventListContainer">
+    {% for event in page_obj %}
+        <h3>{{ event.event_name }}</h3>
+        <p>Date: {{ event.event_date }}</p>
+        <p>Time: {{ event.event_time }}</p>
+        {% if event.event_image %}
+            <img src="{{ event.event_image.url }}" alt="{{ event.event_name }}" width="500" height="600">
+        {% endif %}
+        <p>Description: {{ event.event_description }}</p>
+        <p>Location: {{ event.event_location }}</p> /
+        <!-- Add more event details as needed -->
+    {% endfor %}
+
+</div>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Handle form submission with Ajax
+    $(document).on('submit', '#filterForm', function (e) {
+        e.preventDefault();
+        const formData = $(this).serialize();
+        fetchEvents(formData);
+    });
+
+    // Handle Clear button click
+    $(document).on('click', '#clearBtn', function (e) {
+        e.preventDefault();
+        $('#filterForm')[0].reset(); // Reset the form fields
+        fetchEvents(''); // Fetch all events (no filter criteria)
+    });
+
+    // Function to fetch filtered events
+    function fetchEvents(formData) {
+        $.ajax({
+            type: 'GET',
+            url: '/api/events/', // URL for the Ajax view (to be created in step 3)
+            data: formData,
+            dataType: 'json',
+            success: function (data) {
+                // Update the event list container with the filtered events
+                const eventListContainer = $('#eventListContainer');
+                eventListContainer.html('');
+
+                for (const event of data) {
+                    eventListContainer.append(`
+                        <h3>${event.event_name}</h3>
+                        <p>Date: ${event.event_date}</p>
+                        <p>Time: ${event.event_time}</p>
+                        <p>Description: ${event.event_description}</p>
+                        <p>Location: ${event.event_location}</p>
+                        <!-- Add more event details as needed -->
+                    `);
+                }
+            },
+            error: function (error) {
+                console.error('Error fetching filtered events:', error);
+            }
+        });
+    }
+</script>

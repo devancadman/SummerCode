@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from .models import UserProfile, Event
 from .forms import EventForm
 from django.contrib import messages
@@ -17,7 +17,7 @@ def add_event(request):
     add_event.html
     """
     if request.method == 'POST':
-        form = EventForm(request.POST)
+        form = EventForm(request.POST, request.FILES)
         if form.is_valid():
             event = form.save(commit=False)
             event.organizer = request.user
@@ -39,6 +39,62 @@ def add_event(request):
 def contact(request):
     
     return render(request, 'contact.html')
+
+from django.core.paginator import Paginator
+
+def event_list(request):
+    events = Event.objects.all()
+
+    # Handling filter parameters
+    location = request.GET.get('location')
+    date = request.GET.get('date')
+
+    if location:
+        events = events.filter(event_location__icontains=location)
+
+    if date:
+        events = events.filter(event_date=date)
+
+    # Applying pagination to filtered events
+    paginator = Paginator(events, 3)  # Show 3 events per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'event_list.html', {'page_obj': page_obj})
+
+def event_detail(request, event_id):
+    # Your view logic goes here, and you can use the event_id parameter to fetch the specific event.
+    return HttpResponse(f"This is the detail view for event {event_id}.")
+
+from django.http import JsonResponse
+from django.views.decorators.http import require_GET
+from .models import Event
+
+@require_GET
+def api_filter_events(request):
+    location = request.GET.get('location', '')
+    date = request.GET.get('date', '')
+
+    # Filter events based on the given criteria
+    filtered_events = Event.objects.all()
+
+    if location:
+        filtered_events = filtered_events.filter(event_location__icontains=location)
+
+    if date:
+        filtered_events = filtered_events.filter(event_date=date)
+
+    # You can add more filter criteria as needed
+
+    # Serialize the events as JSON and return them
+    data = [{'event_name': event.event_name, 'event_date': event.event_date.strftime('%Y-%m-%d'),
+             'event_time': event.event_time.strftime('%H:%M:%S'), 'event_description': event.event_description,
+             'event_location': event.event_location} for event in filtered_events]
+
+    return JsonResponse(data, safe=False)
+
+def event_map(request):
+    return render(request, 'event_map.html')
 
 def edit_event(request, event_id):
 
