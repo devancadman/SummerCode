@@ -27,7 +27,7 @@ header {
 	font-size: 110%;
     font-family: oswald;    
     letter-spacing: 4px;
-    width: 600px;
+    width: 620px;
     height: 350px;
     padding-top: 40px;
     padding-left: 10px;
@@ -36,12 +36,18 @@ header {
     left: 0;
 }
 
-div img {
-    height: 300px;
-    width:400px;
-    top:60px;
+.align {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.align img {
+    height: 350px;
+    width:auto;
+    top:100px;
     right:0;
-    float: right;
+    
 }
 
 #right-side-content {
@@ -54,16 +60,31 @@ div img {
     padding-left: 10px;
     background-color: rgba(241, 109, 107, .1);
     bottom: 40px;
-    float:right;
+    
     text-align: right;
 }
+
+.align-right {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.align-right img {
+    height: auto;
+    width:550px;
+    top:100px;
+    right:0;
+    
+}
+
 
 #container {
 	height: 275px;
 	border: 2px solid lightgray;
 	background: whitesmoke;
 	border-radius: 5px;
-    margin: 400px auto 0px auto ;
+    margin: 100px auto 0px auto ;
 
 
 }
