@@ -1,0 +1,94 @@
+body {
+    color: #382e20;
+    background: radial-gradient(#f9f7ee, 80%, #ffefaf);
+    text-align: center;
+}
+
+header {
+    background: radial-gradient(#f3e2ae, 80%, #ffeaaa);
+}
+
+
+
+
+#about {
+    background: radial-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+    padding: 5%;
+    box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+.heading{
+	text-align: center;
+}
+
+
+#left-side-content {
+	font-size: 110%;
+    font-family: oswald;    
+    letter-spacing: 4px;
+    width: 600px;
+    height: 350px;
+    padding-top: 40px;
+    padding-left: 10px;
+    background-color: rgba(241, 109, 107, .1);
+    top: 60px;
+    left: 0;
+}
+
+div img {
+    height: 300px;
+    width:400px;
+    top:60px;
+    right:0;
+    float: right;
+}
+
+#right-side-content {
+    font-size: 110%;
+    font-family: oswald;    
+    letter-spacing: 4px;
+    width: 600px;
+    height: 300px;
+    padding-top: 40px;
+    padding-left: 10px;
+    background-color: rgba(241, 109, 107, .1);
+    bottom: 40px;
+    float:right;
+    text-align: right;
+}
+
+#container {
+	height: 275px;
+	border: 2px solid lightgray;
+	background: whitesmoke;
+	border-radius: 5px;
+    margin: 400px auto 0px auto ;
+
+
+}
+
+.pic-size img {
+    width:150px;
+    height:150px;
+    margin: 25px;
+    padding: 0;
+   
+}
+
+#icons_to_click li{
+	 display:inline-block;
+}
+
+
+ul{
+	list-style-type: none;
+}
+
+div, p, ul{
+	margin: 20px 50px 20px 50px;
+}
+
+footer {
+    background: radial-gradient(#f3e2ae, 80%, #fce7a9);
+}
