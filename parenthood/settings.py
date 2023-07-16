@@ -27,9 +27,7 @@ SECRET_KEY = "django-insecure-j0+$r2r(l7n!pxc_b)q#&0w#d2_ixt#wcvpqwj!e%n2p-4cgxy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-oyindamolaba-summercode-5bcqplw24rt.ws-eu101.gitpod.io']
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-ALLOWED_HOSTS = ['8000-irissmok-summercode-ba98h1pwi4w.ws-eu101.gitpod.io']
+ALLOWED_HOSTS = ['8000-oyindamolaba-summercode-5bcqplw24rt.ws-eu101.gitpod.io', '8000-oyindamolaba-summercode-iho7s0naq69.ws-eu101.gitpod.io', 'localhost', '127.0.0.1', '8000-irissmok-summercode-ba98h1pwi4w.ws-eu101.gitpod.io']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-irissmok-summercode-ba98h1pwi4w.ws-eu101.gitpod.io']
 # Application definition
@@ -48,7 +46,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4', 
     'event',
-    'home',
 ]
 
 MIDDLEWARE = [

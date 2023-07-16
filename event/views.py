@@ -36,4 +36,7 @@ def add_event(request):
      }
     return render(request, template, context)
 
+def contact(request):
+    
+    return render(request, 'contact.html')
 
