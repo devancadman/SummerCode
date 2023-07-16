@@ -5,7 +5,7 @@ from django.contrib import messages
 
 def home_page(request):
 
-    events = Event.objects.all()
+    events = Event.objects.all().order_by('-event_date')[:4]
     context = {
         'events':events
     }
