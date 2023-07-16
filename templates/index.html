@@ -1,41 +1,50 @@
 {% extends "base.html" %}
 
 {% block content %}
+<!-- Container div -->
 <div class="container">
+  <!-- Welcome Div -->
     <div class="row">
       <div class="welcome-tet">
         <h1>Welcome to Parenthood!</h1>
       </div>
       <div class="parenthood-brief">
+        <!-- the short description -->
         <div class="brief-text">
-          <p> A safe space for parents and their children to meet up and connect with the community.
+          <p> A safe space for parents and their children to meet up and connect with the community.</p>
         </div>
         <div class="signup-btn-container">
-          <button id="signup-btn">Sign Up</div>
+          <!-- sign up button -->
+          <button id="signup-btn">Sign Up</button>
         </div>
       </div>
       <div class="img-container">
-        <img src="">
+        <!-- This is just a placeholder image for hero image -->
+        <img class="heroimg" src="https://images.pexels.com/photos/2833394/pexels-photo-2833394.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
       </div>
     </div>
+    <!-- about us div -->
     <div class="row" id="about">
       <div class="row about-txt">
-        <h2>What is Parenthood App</div>
+        <h2>What is Parenthood App</h2>
         <p>It is an app that allows families to create and locate events near them and bring the community together</p>
       </div>
-      <div class="row">
+      <!-- Meet community div -->
+      <div class="column meet-community-div">
         <div class="column meet-community">
           <i class="fa-sharp fa-solid fa-handshake"></i>
           <p>Meet the community</p>
         </div>
       </div>
-      <div class="row">
+      <!-- Find support div -->
+      <div class="column find-support-div">
         <div class="column find-support">
           <i class="fa-regular fa-hand-holding-heart"></i>
-          <p>Find Supprt</p>
+          <p>Find Support</p>
         </div>
       </div>
-      <div class="row">
+      <!-- Discover Events in about div -->
+      <div class="column discover-events-div">
         <div class="column discover-events">
           <i class="fa-regular fa-map-location-dot"></i>
           <p>Discover nearby events</p>
