@@ -1,15 +1,28 @@
+/* sets the basic font color of the text elements to brown and a yellow radial backgroubd alighns all text to center */
 body {
     color: #382e20;
     background: radial-gradient(#f9f7ee, 80%, #ffefaf);
     text-align: center;
 }
 
+/* adds a yellow raidial gradient background to header */
+header {
+    background: radial-gradient(#f3e2ae, 80%, #ffeaaa);
+}
+
+/* sets a yellow radial graident background to footer */
+footer {
+    background: radial-gradient(#f3e2ae, 80%, #fce7a9);
+}
+
+/* syles the about and event box's to have a slightly whiter background then the surrounding divs */
 #about, .events-outter {
     background: radial-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
     padding: 5%;
     box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
+/* sign up button */
 #signup-btn {
     font-size: 16px;
     padding: 5px;
@@ -20,12 +33,14 @@ body {
     text-shadow: 1px 1px 1px grey;
 }
 
+/* effect for hovering over signup button */
 #signup-btn:hover {
     box-shadow: 1px 2px 3px grey;
     transform: scale(1.05);
     transition: 100ms;
 }
 
+/* hero image */
 .heroimg img {
     height: 50px;
     width: auto;
