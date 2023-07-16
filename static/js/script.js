@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // This line creates a new map in the 'map' HTML element on your page using the Leaflet.js library.
     var map = L.map('map');
 
+    var currentUserLocation = null;
+
     // Set up the OpenStreetMap layer
     // This sets up the base map tiles from OpenStreetMap. It's specifying the URLs of the map tiles, and adding them to the map object you just created.
     // The maxZoom option designates the maximum zoom level for the map, beyond which the user cannot zoom in. 
@@ -16,8 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // This function will be called if the geolocation request is successful.
     // The Position object is passed to it as an argument.
     function showPosition(position) {
-        // Extract latitude and longitude from the Position object and store in location
-        var location = { lat: position.coords.latitude, lng: position.coords.longitude };
+        currentUserLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
 
         // Center the map on the user's location and set the zoom level to 14
         map.setView(location, 14);
@@ -45,4 +46,34 @@ document.addEventListener('DOMContentLoaded', function() {
         // If the Geolocation API is not supported by the user's browser, show an alert
         alert('Geolocation is not supported by this browser.');
     }
+
+    // Custom Zoom Buttons
+    var customControlZoomIn= L.control({position: 'topright'});
+    var customControlZoomOut = L.control({position: 'topright'});
+
+    customControlZoomIn.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'custom-control');
+        div.innerHTML = '<button onclick="map.zoomIn();">Zoom In</button>';
+        return div;
+    };
+
+    customControlZoomOut.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'custom-control');
+        div.innerHTML = '<button onclick="map.zoomOut();">Zoom Out</button>';
+        return div;
+    };
+
+    customControlZoomIn.addTo(map);
+    customControlZoomOut.addTo(map);
+
+    // Pan to a specific location (for instance, current location)
+    var goToUserLocation = L.control({position: 'topright'});
+
+    goToUserLocation.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'my-control');
+        div.innerHTML = '<button onclick="map.panTo(currentUserLocation);">Go to Current User Location</button>';
+        return div;
+    };
+
+    goToUserLocation.addTo(map);
 });
