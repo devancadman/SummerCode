@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/css/style.css" />     
+
+
+       
+
+        <title>Event page</title>
+    </head>
+    <body>
+        <h1>Event Title</h1>
+        
+            <div class="img-carousel">
+                
+            </div>
+        <script>
+        const images = ['url(../static/images/event_image_1.jpeg)', 'url(../static/images/event_image_2.jpeg)','url(../static/images/event_image_3.jpeg)'];
+       
+            //this is for the image carousel on the event page
+            let imgCarousel = document.querySelector('.img-carousel');
+
+            let currentImageIndex = 0;
+
+            if (images.length > 0) {
+                setInterval(() => {
+                    currentImageIndex++;
+                    if (currentImageIndex === 3) {
+                    currentImageIndex = 0;
+                    }
+                    
+                    imgCarousel.style.backgroundImage = images[currentImageIndex];
+                }, 5000);
+            } 
+        </script>
+        <section class="event-description">
+            <h2>Event Description</h2>
+            <div class="event-details">
+                <div>
+                    <h3>Date and Time</h3>
+                    <p>Date: 2023-03-08</p>
+                    <p>Time: 10:00 AM - 12:00 PM</p>
+                </div>
+                <div>
+                    <h3>Location</h3>
+                    <p>123 Main Street, Anytown</p>
+                </div>
+                <div>
+                <h3>Contact Information</h3>
+                    <p>Email: parent-hood@gmail.com </p>
+                    <p>Phone: 0578680808</p>
+                </div>
+            </div>
+       </section>
+
+    
+    </body>
+</html>
