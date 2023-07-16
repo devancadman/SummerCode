@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags%}
+
+{% if user.is_authenticated %}
+
+<!-- TITLE -->
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center mt-5">
+            <h2>Hi {{ user.username }}</h2>
+        </div>
+    </div>
+</div>
+
+<!-- EVENT FORM -->
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <hr>
+            <h2 class="logo-font mb-4 mt-5">Edit Event</h2>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <form method="POST" action="{% url 'edit_event' event.id %}" class="form mb-2 text-start"
+                enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy}}
+                <div class="text-right mb-5">
+                    <a class="btn logo-font btn-style rounded" href="{% url 'home_page' %}">Cancel</a>
+                    <button class="btn blogo-font btn-style rounded" type="submit">Update Event</button>
+                </div>
+            </form>
+
+{% endif %}
+
+{%endblock%}

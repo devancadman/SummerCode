@@ -1,11 +1,11 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import UserProfile, Event
 from .forms import EventForm
 from django.contrib import messages
 
 def home_page(request):
 
-    events = Event.objects.all()
+    events = Event.objects.all().order_by('-event_date')[:4]
     context = {
         'events':events
     }
@@ -40,3 +40,37 @@ def contact(request):
     
     return render(request, 'contact.html')
 
+def edit_event(request, event_id):
+
+    event = get_object_or_404(Event, pk=event_id)
+    if request.method == 'POST':
+        form = EventForm(request.POST, instance=event)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated event!')
+            return redirect(reverse('home_page'))
+        else:
+            messages.error(
+                request,
+                'Failed to update event. Please ensure the form is valid.')
+    else:
+        form = EventForm(instance=event)
+        messages.info(request, f'You are editing {event.event_name}')
+
+    template = 'edit_event.html'
+    context = {
+        'form': form,
+        'event': event,
+    }
+
+    return render(request, template, context)
+
+
+def user_events(request):
+
+    if request.user.is_authenticated:
+        events = Event.objects.filter(organizer=request.user).order_by('-event_date')
+        context = {
+        'events':events
+    }
+    return render(request, 'user_events.html', context)
