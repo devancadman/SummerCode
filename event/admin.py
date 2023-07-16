@@ -14,5 +14,5 @@ class AdminEvent(admin.ModelAdmin):
     """
     User profile class in admin panel
     """
-    list_display = ('organizer', 'event_name', 'event_date_time')
+    list_display = ('organizer', 'event_name', 'event_date', 'event_time')
     
