@@ -14,4 +14,3 @@ urlpatterns = [
     path('events/<int:event_id>/', views.event_detail, name='event_detail'),
     path('event_map/', views.event_map, name='event_map'),
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
