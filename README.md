@@ -37,6 +37,7 @@ Technical implementation utilizes HTML, CSS, and JavaScript for the frontend dev
 
 ParentHood's goal is to empower parents, foster connections, and create a vibrant community centered around shared experiences. By providing a user-friendly platform for organizing events, engaging in conversations, and discovering activities tailored to their children's age and interests, ParentHood aims to enhance the joy and fulfillment of parenthood.
 
+
 ## Goal
 The goal section provides a concise summary of the main objective or purpose of the project or software described in this README. It addresses the following aspects:
 
