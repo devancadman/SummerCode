@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-oyindamolaba-summercode-5bcqplw24rt.ws-eu101.gitpod.io', '8000-oyindamolaba-summercode-iho7s0naq69.ws-eu101.gitpod.io', 'localhost', '127.0.0.1', '8000-irissmok-summercode-ba98h1pwi4w.ws-eu101.gitpod.io', 'parenthood.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['8000-oyindamolaba-summercode-5bcqplw24rt.ws-eu101.gitpod.io', '8000-oyindamolaba-summercode-iho7s0naq69.ws-eu101.gitpod.io', 'localhost', '127.0.0.1', '8000-irissmok-summercode-ba98h1pwi4w.ws-eu101.gitpod.io', 'parent-hood.herokuapp.com', 'localhost']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-irissmok-summercode-ba98h1pwi4w.ws-eu101.gitpod.io']
 # Application definition
@@ -118,17 +118,17 @@ WSGI_APPLICATION = "parenthood.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
-
-
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
 }
+
+
+# DATABASES = {
+#     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
