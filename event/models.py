@@ -1,6 +1,7 @@
 from django.db import models
 import datetime
 from django.core.exceptions import ValidationError
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 # Create your models here.
@@ -21,7 +22,7 @@ class Event(models.Model):
     event_name = models.CharField(max_length=80, null=False, blank=False)
     event_date = models.DateField( null=False, blank=False)
     event_time = models.TimeField( null=False, blank=False)
-    event_image = models.ImageField(upload_to='event_images', null=True, blank=True)
+    event_image = CloudinaryField('image', default='placeholder')
     event_description = models.TextField(null=True)
     event_location = models.CharField(max_length=80, null=False, blank=False)
 
