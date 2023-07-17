@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-oyindamolaba-summercode-5bcqplw24rt.ws-eu101.gitpod.io', '8000-oyindamolaba-summercode-iho7s0naq69.ws-eu101.gitpod.io', 'localhost', '127.0.0.1', '8000-irissmok-summercode-ba98h1pwi4w.ws-eu101.gitpod.io', 'parent-hood.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['8000-oyindamolaba-summercode-5bcqplw24rt.ws-eu101.gitpod.io', '8000-oyindamolaba-summercode-iho7s0naq69.ws-eu101.gitpod.io', 'localhost', '127.0.0.1', '8000-irissmok-summercode-ba98h1pwi4w.ws-eu101.gitpod.io', 'parent-hood-df9c25ea5e2b.herokuapp.com', 'localhost']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-irissmok-summercode-ba98h1pwi4w.ws-eu101.gitpod.io']
 # Application definition
