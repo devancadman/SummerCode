@@ -96,7 +96,7 @@ The site is made up of HTML, CSS, Javascript, Django,
 We would like to give credit to the following individuals, organizations, and resources that have contributed to the project or provided inspiration:
 
 ### Project Team
- - Devan Cadman who also provided scrum master leadership (https://github.com/Iris-Smok)
+ - Devan Cadman who also provided scrum master leadership (https://github.com/devancadman)
  - Iris Smok (https://github.com/Iris-Smok)
  - Jamie Oneill (https://github.com/jamie33o)
  - John Hummel (https://github.com/Danger0101) 
