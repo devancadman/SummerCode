@@ -91,7 +91,15 @@ The goal section provides a concise summary of the main objective or purpose of 
 ## Team
 As I team, we regularly held meeting, communicated and used resources such as Gihib Projects Kanban Board:
 <br>
-![Summer of Code Banner](https://raw.githubusercontent.com/devancadman/SummerCode/main/media/SummerCode-Kanban.png)
+![Kanban](https://raw.githubusercontent.com/devancadman/SummerCode/main/media/SummerCode-Kanban.png)
+
+
+### Wireframe@
+![Wireframe](https://raw.githubusercontent.com/devancadman/SummerCode/main/media/Wireframes-pdf.png)
+
+### Workflows:
+![Login Workflow](https://raw.githubusercontent.com/devancadman/SummerCode/main/media/Login%20_%20Sign-Up-workflow.png)
+![Profile Workflow](https://raw.githubusercontent.com/devancadman/SummerCode/main/media/Profile-workflow.png)
 
 ## Tech
 In the tech section, we provide information about the technology stack, dependencies, and any technical details related to the project.
