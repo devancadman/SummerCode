@@ -89,9 +89,9 @@ The goal section provides a concise summary of the main objective or purpose of 
 - provides access to areas of the local area users may not know were available.
 
 ## Team
-<br>
 As I team, we regularly held meeting, communicated and used resources such as Gihib Projects Kanban Board:
-![Knaban](https://raw.githubusercontent.com/devancadman/SummerCode/main/media/SummerCode-Kanban.png)
+<br>
+![Summer of Code Banner](https://raw.githubusercontent.com/devancadman/SummerCode/main/media/SummerCode-Kanban.png)
 
 ## Tech
 In the tech section, we provide information about the technology stack, dependencies, and any technical details related to the project.
