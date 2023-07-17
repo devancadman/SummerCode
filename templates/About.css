@@ -1,0 +1,80 @@
+body {
+    color: #382e20;
+    background: radial-gradient(#f9f7ee, 80%, #ffefaf);
+    text-align: center;
+}
+
+header {
+    background: radial-gradient(#f3e2ae, 80%, #ffeaaa);
+}
+
+
+
+
+#about {
+    background: radial-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+    padding: 5%;
+    box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+.heading{
+	text-align: center;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-container > div {
+  margin: 0;
+  padding: 20px;
+  font-size: 20px;
+  text-align: left;
+  background-color: rgb(255, 0, 101, 0.1);
+  border-radius: 5px;
+  border: 2px solid lightgray;;
+}
+
+
+.flex-container img {
+ height:250px;
+ width:250px;
+ border-radius: 50%;
+}
+
+
+#container {
+	height: 275px;
+	border: 2px solid lightgray;
+	background: whitesmoke;
+	border-radius: 5px;
+    margin: 25px 50px 0px 50px ;
+
+
+}
+
+.pic-size img {
+    width:150px;
+    height:150px;
+    margin: 25px;
+    padding: 0;
+   
+}
+
+#icons_to_click li{
+	 display:inline-block;
+}
+
+
+ul{
+	list-style-type: none;
+}
+
+div, p, ul{
+	margin: 20px 50px 20px 50px;
+}
+
+footer {
+    background: radial-gradient(#f3e2ae, 80%, #fce7a9);
+}
