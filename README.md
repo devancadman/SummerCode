@@ -76,6 +76,8 @@ The goal section provides a concise summary of the main objective or purpose of 
 
 -  As a user of ParentHood I want to be able to update my profile so I can find those who are interested in similar activities as me.
 
+- As a user of ParentHood I want to be able to chat with others directly through the site.
+
 
 - 
 - ➡️ Benefits
