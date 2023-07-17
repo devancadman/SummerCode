@@ -11,9 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
 import os
 import dj_database_url
 if os.path.isfile('env.py'):
@@ -171,13 +168,6 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
  
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-
-# adding config
-cloudinary.config( 
-  cloud_name = "irissmok", 
-  api_key = "515611441761453", 
-  api_secret = "CZcjE47iI967jHFpadtADJ6pUjA" 
-)
 
 
 # Default primary key field type
