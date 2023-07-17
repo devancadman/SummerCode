@@ -1,8 +1,9 @@
+<!-- add-event.html -->
 {% extends "base.html" %}
 
 {% block content %}
 
-{% load crispy_forms_tags%}
+{% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
 
@@ -19,18 +20,20 @@
 <!-- EVENT FORM -->
 <div class="container">
     <div class="row">
-        <div class="col-10 mt-3 offset-1 g-0">
+        <div class="col-10 mt-3 offset-1 g-0 text-start">
             <form action="{% url 'add_event' %}" method="POST" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form|crispy}}
+                <div class="form-group">
+                    <label for="addressInput">Event Location</label>
+                    <input type="text" id="addressInput" name="address" class="form-control" placeholder="Enter address or search for location...">
+                </div>
                 <button class="btn btn-secondary right mb-2" type="submit" value="Save">Add Event</button>
             </form>
         </div>
     </div>
 </div>
- 
-
 
 {% endif %}
 
-{%endblock%}
+{% endblock %}
