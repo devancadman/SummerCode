@@ -60,27 +60,28 @@
       <div id="map"></div>
     </div>
     <div class="row events-outter">
-        {% for event in events %}
-      <div class="col-sm-6 col-md-7 col-lg-3 col-xl-3 rec-card-position">
-
-        <a href="{% url 'event_detail' event_id=event.pk %}" class="text-decoration-none text-reset">
-        <div class="card card-recently-added">  
-          <div class="card-body">
-            <h5 class="card-title rec-card-title"></h5>
-            <p class="card-text">{{ event.event_name }}</p>
-            <p class="card-text">Organizer: {{ event.organizer }}</p>
-            <p class="card-text">{{ event.event_description}}</p>
-            <hr>
-            <div class="card-text text-muted">{{ event.event_date}}  {{ event.event_time}}</div>
-              <div class="card-text text-muted">{{ event.event_location}} <i class="far fa-heart pl-3"></i>
-              </div>
-            </div>
+      {% for event in events %}
+    <div class="col-sm-6 col-md-7 col-lg-3 col-xl-3 rec-card-position">
+      <a href="#" class="text-decoration-none text-reset">
+      <div class="card mb-3">
+              <div class="card-body">
+                  <h5 class="card-title rec-card-title"></h5>
+              <p class="card-text">{{ event.event_name }}</p>
+              <p class="card-text">Organizer: {{ event.organizer }}</p>
+              <p class="card-text">{{ event.event_description}}</p>
+              <hr>
+              <div class="card-text text-muted">{{ event.event_date}}  {{ event.event_time}}
+                  <div class="card-text text-muted">{{ event.event_location}} <i class="far fa-heart pl-3"></i>
+               </div>
           </div>
-        </div>
-        </a>
-      </div>   
+          </div>
+      </div>
+      </a>
+    </div>   
+   
+    {% endfor %}  
   
-      {% endfor %}
+      
     </div>
     <!--blog post section-->
     <section class="blogs">
