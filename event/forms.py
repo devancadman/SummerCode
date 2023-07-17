@@ -8,11 +8,28 @@ from django.core.exceptions import ValidationError
 from .models import Event, UserProfile
 
 
-class UserProfileForm(forms.ModelForm):
-    "User profile form"
+from django import forms
+from django.contrib.auth.models import User
+from .models import Profile
 
-    model = UserProfile()
-    exclude = ('user',)
+
+class UserUpdateForm(forms.ModelForm):
+    """
+    Form to update a user's profile username and email
+    """
+
+    class Meta:
+        model = User
+        fields = ['username', 'contact_info']
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    """
+    Form to update a user's profile image
+    """
+    class Meta:
+        model = UserProfile
+        fields = ['user_description']
 
 
 class EventForm(forms.ModelForm):
