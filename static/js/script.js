@@ -1,67 +1,95 @@
 // Wait for the DOM to load
 document.addEventListener('DOMContentLoaded', function() {
-    // Create a new map using the Leaflet.js library
-    var map = L.map('map');
-    
-    // Set up the OpenStreetMap layer
+    // Initialize the map
+    const map = L.map('map');
+
+    // Add the tile layer for the map background
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
-        maxZoom: 18,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
+
+    // Function to show nearby pins using addresses or postal codes
+    function showNearbyPins(position) {
+        const { latitude, longitude } = position.coords;
     
-    // Function to show the user's location on the map
-    function showPosition(position) {
-        var location = { lat: position.coords.latitude, lng: position.coords.longitude };
-        
-        // Center the map on the user's location and set the zoom level to 14
-        map.setView(location, 14);
-        
-        // Add a marker at the user's location with a popup that says 'Your Location'
-        L.marker(location).addTo(map)
+        // Set the map view to the user's location
+        const userLocation = L.latLng(latitude, longitude);
+        map.setView(userLocation, 12);
+    
+        // Draw a circle with a radius of 10 miles around the user's location
+        const circle = L.circle(userLocation, {
+            color: 'blue',
+            fillColor: 'blue',
+            fillOpacity: 0.1,
+            radius: 16093.44 // 10 miles in meters
+        }).addTo(map);
+    
+        // Add a marker for the user's location
+        L.marker(userLocation).addTo(map)
             .bindPopup('Your Location')
             .openPopup();
+    
+        // Sample data: Replace these addresses with your own
+        const addresses = [
+            "North Shore Beach, Llandudno, LL30 2LN",
+            "Conwy Castle, Rose Hill St, Conwy, Conwy LL32 8AY",
+            "Eirias Park LL29 8HF",
+            "London Eye, London, United Kingdom", // This is outside the 10-mile range
+            "Penmon Point, 8RP, Beaumaris", 
+        ];
+    
+        // Use Nominatim API to get coordinates for each address
+        const geocodingPromises = addresses.map(address => {
+            const query = encodeURIComponent(address);
+            const apiUrl = `https://nominatim.openstreetmap.org/search?q=${query}&format=json`;
+    
+            return fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.length > 0) {
+                        const { lat, lon } = data[0];
+                        return { lat: parseFloat(lat), lng: parseFloat(lon), name: address };
+                    }
+                })
+                .catch(error => {
+                    console.error(`Error geocoding ${address}: ${error}`);
+                    return null;
+                });
+        });
+    
+        // Wait for all geocoding promises to complete
+        Promise.all(geocodingPromises).then(locations => {
+            const nearbyPins = locations.filter(location => {
+                if (location) {
+                    const distance = userLocation.distanceTo([location.lat, location.lng]);
+                    return distance <= 16093.44; // 10 miles in meters
+                }
+                return false;
+            });
+    
+            nearbyPins.forEach(location => {
+                const { lat, lng, name } = location;
+                L.marker([lat, lng]).addTo(map)
+                    .bindPopup(name)
+                    .openPopup();
+            });
+        });
     }
 
-    // Function to handle errors or when geolocation access is denied/blocked
-    function handleGeolocationError(error) {
-        // Set a default location (e.g., city center or any location you prefer)
-        var defaultLocation = { lat: 0, lng: -0 };
-        
-        // Center the map on the default location and set the zoom level to 14
-        map.setView(defaultLocation, 2);
-        
-        // Add a marker at the default location with a popup that says 'Default Location'
-        L.marker(defaultLocation).addTo(map)
-            .bindPopup('Geolocation Denied')
-            .openPopup();
-
-        // Handle errors here, you can use the 'code' and 'message' properties of the PositionError object.
-        // For example, you can display a message to the user explaining that their location could not be retrieved.
-        switch (error.code) {
-            case error.PERMISSION_DENIED:
-                console.log("User denied the request for Geolocation.");
-                break;
-            case error.POSITION_UNAVAILABLE:
-                console.log("Location information is unavailable.");
-                break;
-            case error.TIMEOUT:
-                console.log("The request to get user location timed out.");
-                break;
-            case error.UNKNOWN_ERROR:
-                console.log("An unknown error occurred.");
-                break;
-        }
+    // Function to handle errors when getting user's location
+    function handleLocationError(error) {
+        console.error(error);
+        // Fallback coordinates (e.g., city center)
+        const fallbackCoordinates = { latitude: 51.5074, longitude: -0.1278 };
+        showNearbyPins({ coords: fallbackCoordinates });
     }
 
-    // Try to get the user's current location
+    // Get the user's location and show nearby pins
     if (navigator.geolocation) {
-        // If the Geolocation API is supported by the user's browser, request their current position
-        // The getCurrentPosition method takes two arguments:
-        // 1. The success callback function (in this case, showPosition)
-        // 2. The error callback function (in this case, handleGeolocationError)
-        navigator.geolocation.getCurrentPosition(showPosition, handleGeolocationError);
+        navigator.geolocation.getCurrentPosition(showNearbyPins, handleLocationError);
     } else {
-        // If the Geolocation API is not supported by the user's browser, show an alert
-        alert('Geolocation is not supported by this browser.');
+        // Geolocation not supported by the browser
+        handleLocationError({ code: 0, message: "Geolocation is not supported by this browser." });
     }
+
 });

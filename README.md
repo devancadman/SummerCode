@@ -94,3 +94,24 @@ The site is made up of HTML, CSS, Javascript, Django,
 
 ## Credits
 We would like to give credit to the following individuals, organizations, and resources that have contributed to the project or provided inspiration:
+
+### Project Team
+ - Devan Cadman who also provided scrum master leadership (https://github.com/Iris-Smok)
+ - Iris Smok (https://github.com/Iris-Smok)
+ - Jamie Oneill (https://github.com/jamie33o)
+ - John Hummel (https://github.com/Danger0101) 
+ - Atchutchi Ferreira (https://github.com/atchutchi)
+ - Ganiet Badara (https://github.com/Oyindamolabadara)
+ - Adelle King (https://github.com/AdelleKing)
+
+ ### Code
+ - [W3Schools](https://www.w3schools.com/)
+ - [MDN](https://developer.mozilla.org/en-US/)
+
+ ### UI
+ - Images [pexels](https://www.pexels.com/)
+ - Icons [Freepik](https://www.freepik.com/)
+ - Favicon (https://favicon.io/)
+
+ ### Functionality
+ - Interactive Map Leafletjs - (https://leafletjs.com/)
