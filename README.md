@@ -1,16 +1,14 @@
-# SummerCode
+# TEAM: SummerCode
 Code Institute July 2023 Hackathon - Theme:
 <h1 align="center"><strong>🌞🚵 Summer of Code 🏄🏖️</strong>
 
 </h1>
 
-
 ![Summer of Code Banner](https://res.cloudinary.com/djdefbnij/image/upload/v1688114955/Summer_2_owummy.png)
 
-# SUBMISSION
-## Deployment
-#### _(please note, your team must also include the deployed links in the usual submission in Hackapp)_
-The project is deployed and can be accessed at [http://your-deployed-link.com](http://your-deployed-link.com).
+## We Bring to you:
+# ParentHood - [View the Live site](https://parent-hood-df9c25ea5e2b.herokuapp.com/)
+![ParentHood](https://raw.githubusercontent.com/devancadman/SummerCode/main/media/ParentHood.png)
 
 ## Criteria
 In this section, we will briefly discuss how our team addressed the applicable criteria:
@@ -20,6 +18,7 @@ In this section, we will briefly discuss how our team addressed the applicable c
 - ✨ Project aligns well to the Hackathon Theme
 - ✨ Clear use of Github Projects or other agile tool
 - ✨ Presentation Quality - Present as if you are pitching it to client
+
 
 # ABOUT SUBMISSION
 ## Intro
@@ -79,7 +78,6 @@ The goal section provides a concise summary of the main objective or purpose of 
 - As a user of ParentHood I want to be able to chat with others directly through the site.
 
 
-- 
 - ➡️ Benefits
 - easy access to the local community within a local area
 - opportunities for users to undertake activities with others
@@ -88,9 +86,20 @@ The goal section provides a concise summary of the main objective or purpose of 
 - opportunities for children to see happy parents, meet other children and enahnce thier socialisation skills.
 - provides access to areas of the local area users may not know were available.
 
+## Team
+<br>
+As I team, we regularly held meeting, communicated and used resources such as Gihib Projects Kanban Board:
+![Knaban](https://raw.githubusercontent.com/devancadman/SummerCode/main/media/SummerCode-Kanban.png)
+
 ## Tech
 In the tech section, we provide information about the technology stack, dependencies, and any technical details related to the project.
 The site is made up of HTML, CSS, Javascript, Django,
+
+# SUBMISSION
+## Deployment
+#### _(please note, your team must also include the deployed links in the usual submission in Hackapp)_
+The project is deployed and can be accessed at [[http://your-deployed-link.com](https://parent-hood-df9c25ea5e2b.herokuapp.com/)]([http://your-deployed-link.com](https://parent-hood-df9c25ea5e2b.herokuapp.com/)).
+
 
 ## Credits
 We would like to give credit to the following individuals, organizations, and resources that have contributed to the project or provided inspiration:
